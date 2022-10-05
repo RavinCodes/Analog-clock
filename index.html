@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Analog Clock By Ravin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body class="sect">
+
+            <div class="toggle"></div>
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="min">
+                <div class="mn" id="mn"></div>
+            </div>
+            <div class="sec">
+                <div class="sc" id="sc"></div>
+            </div>
+        </div>
+
+        
+        <script>
+const sect = document.querySelector('.sect');
+const toggle = document.querySelector('.toggle');
+
+toggle.onclick = function(){
+    sect.classList.toggle('dark')
+}
+
+
+            const deg = 6;
+const hr = document.querySelector('#hr');
+const mn = document.querySelector('#mn');
+const sc = document.querySelector('#sc');
+
+setInterval(() => {
+    let day = new Date();
+let hh = day.getHours() * 30;
+let mm = day.getMinutes() * deg;
+let ss = day.getSeconds() * deg;
+
+hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+mn.style.transform = `rotateZ(${mm}deg)`;
+sc.style.transform = `rotateZ(${ss}deg)`;
+})
+        </script>
+    </body>
+</html>
